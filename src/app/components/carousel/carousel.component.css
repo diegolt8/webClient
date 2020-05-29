@@ -1,0 +1,17 @@
+#contenido {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.8) 6%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+#hr-superior {
+    background-color: #1a9aaf;
+    width: 100%;
+    height: 20px;
+}
+
+#hr-inferior {
+    background-color: #000;
+    width: 100%;
+    height: 2px;
+    opacity: 0.5;
+}

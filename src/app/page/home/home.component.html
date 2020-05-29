@@ -1,0 +1,18 @@
+<app-carousel></app-carousel>
+<div class="container">
+    <h4>Nuestros productos</h4>
+    <h4 class="separador"></h4>
+    <div class="row row-cols-1 row-cols-md-3">
+        <div class="row col-md-9 mt-5">
+            <div type="submit" *ngFor="let product of products" class="col-sm-4 p-4">
+                <div class="card">
+                    <img class="card-img-top " style="height: 9rem;" [src]="product.imagen" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title ">{{ product.name }}</h5>
+                        <a type="submit" id="btnTop" (click)="showProduct(product.id)">ver mas</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

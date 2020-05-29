@@ -1,0 +1,125 @@
+<!-- Footer -->
+<footer id="footer" class="page-footer font-small bg-primary">
+
+    <!-- Footer Elements -->
+    <div class="container">
+
+        <!-- Call to action -->
+        <ul class="list-unstyled list-inline text-center py-2">
+            <li class="list-inline-item">
+                <h5 class="mb-1">Registrate y beneficiate!</h5>
+            </li>
+            <li class="list-inline-item">
+                <a data-toggle="modal" data-target="#registro" class="btn btn-outline-light">Registrate!</a>
+            </li>
+        </ul>
+        <!-- Call to action -->
+
+    </div>
+    <!-- Footer Elements -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3 text-light bg-dark">© 2020 Copyright:
+        <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+    </div>
+    <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
+<div class="modal fade" id="registro" tabindex="-1" role="dialog" aria-labelledby="registro" aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <h5 class="modal-title text-light text-justify" id="login">Registro</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+            </div>
+            <div class="modal-body">
+                <form (ngSubmit)="saveUser()" #formRegister="ngForm">
+                    <div class="form-group">
+                        <div class="input-field">
+                            <label for="recipient-name" class="col-form-label">Nombres:</label>
+                            <input [(ngModel)]="userRegister.name" required name="name" #name="ngModel" type="text" class="form-control" id="recipient-name">
+                            <div *ngIf="name.touched && !name.valid">
+                                <div *ngIf="name.errors.required">Este campo es requerido</div>
+                            </div>
+                        </div>
+                        <div class="input-field">
+                            <label for="recipient-name" class="col-form-label">Apellidos:</label>
+                            <input [(ngModel)]="userRegister.lastname" required name="lastname" #lastname="ngModel" type="text" class="form-control" id="recipient-name">
+                            <div *ngIf="lastname.touched && !lastname.valid">
+                                <div *ngIf="lastname.errors.required">Este campo es requerido</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="sel1">Tipo documento:</label>
+                            <select [(ngModel)]="userRegister.documenttype" required name="documenttype" #documenttype="ngModel" class="form-control" id="sel1">
+                              <option value="1">Seleccione...</option>
+                              <option value="Cedula">Cedula</option>
+                              <option value="TI">Tarjeta de identidad</option>
+                            </select>
+                            <div *ngIf="documenttype.touched && !documenttype.valid">
+                                <div *ngIf="documenttype.errors.required">Este campo es requerido</div>
+                            </div>
+                        </div>
+                        <div class="input-field">
+                            <label for="recipient-name" class="col-form-label">Numero documento:</label>
+                            <input required type="number" [(ngModel)]="userRegister.documentnumber" name="documentnumber" #documentnumber="ngModel" class="form-control" id="recipient-name">
+                            <div *ngIf="documentnumber.touched && !documentnumber.valid">
+                                <div *ngIf="documentnumber.errors.required">
+                                    Este campo es requerido.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="sel1">Genero:</label>
+                            <select [(ngModel)]="userRegister.gender" name="gender" #gender="ngModel" class="form-control" id="sel1">
+                              <option value="1">Seleccione...</option>
+                              <option value="Masculino">Masculino</option>
+                              <option value="Femenino">Femenino</option>
+                            </select>
+                        </div>
+                        <div class="input-field">
+                            <label for="recipient-name" class="col-form-label">Edad:</label>
+                            <input type="number" [(ngModel)]="userRegister.age" required name="age" #age="ngModel" class="form-control" id="recipient-name">
+                            <div *ngIf="age.touched && !age.valid">
+                                <div *ngIf="age.errors.required">Este campo es requerido</div>
+                            </div>
+                        </div>
+                        <div class="input-field">
+                            <label for="recipient-name" class="col-form-label">Fecha de nacimiento:</label>
+                            <input type="date" [(ngModel)]="userRegister.birthdate" required name="birthdate" #birthdate="ngModel" class="form-control" id="recipient-name">
+                            <div *ngIf="birthdate.touched && !birthdate.valid">
+                                <div *ngIf="birthdate.errors.required">Este campo es requerido</div>
+                            </div>
+                        </div>
+                        <label for="recipient-name" hidden class="col-form-label">puntos:</label>
+                        <input type="number" hidden [(ngModel)]="userRegister.points" name="points" #points="ngModel" class="form-control" id="recipient-name">
+                        <div class="input-field">
+                            <label for="recipient-name" class="col-form-label">Contraseña:</label>
+                            <input type="password" [(ngModel)]="userRegister.password" name="password" #password="ngModel" class="form-control" id="recipient-name">
+                            <div *ngIf="password.touched && !password.valid">
+                                <div *ngIf="password.errors.required">Este campo es requerido</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="city">Ciudad</label>
+                            <select [(ngModel)]="userRegister.city_id" name="city_id" #city_id="ngModel" class="form-control">
+                                <option value="1">Seleccione</option>
+                                <option *ngFor="let city_id of cities">{{city_id.name}}</option>
+                              </select>
+                        </div>
+                        <!-- <label for="recipient-name" class="col-form-label">Fecha de ingreso:</label>
+                        <input type="date" [(ngModel)]="userRegister.admissiondate" name="admissiondate" #admissiondate="ngModel" class="form-control" id="recipient-name"> -->
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                <button type="submit" (click)="saveUser()" [disabled]="formRegister.invalid" data-dismiss="modal" class="btn btn-success">Registrarse</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+.separador {
+    background-color: #007bff;
+    height: 10px;
+    border: none;
+}
+
+body {
+    max-height: 545vh;
+}
