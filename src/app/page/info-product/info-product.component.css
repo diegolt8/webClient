@@ -1,4 +1,8 @@
 body {
-    min-height: 505px;
+    height: 100%;
     overflow: hidden;
+}
+
+.container {
+    height: 75vh;
 }
